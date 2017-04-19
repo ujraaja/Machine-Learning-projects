@@ -1,0 +1,39 @@
+CSCE 633 - Spring 2016
+Project 2 - Neural Network
+due date: Thurs, March 24 (by start of class, 3:55pm)
+
+The goal of this assignment is to implement a multi-layer neural network (in any programming language of your choice), and test it on at least 5 datasets from the UCI Machine Learning Repository. Compare the performance of your neural net to your Decision Tree program.
+
+Your program should implement the BackProp algorithm.
+
+You will want to use flags to indicate the number of nodes and hidden layers. The program should be able to handle at least 0, 1, or 2 hidden layers.
+
+You will also have to handle discrete attributes. If a discrete attribute has k values, you can try mapping them to k binary input nodes, or log2(k) nodes using a binary encoding, or 1 node with k different values (numeric assignment). Each approach has different advantages, so you might want to try both and see which works best.
+
+If there are multiple class values, you should use multiple output nodes (i.e. 1 output for each class value). During testing, the output with the highest activation indicates the prediction class label. In the special case of binary classification (2-class problems), you may use 1 output node.
+
+During training, you will have to monitor the error (MSE) on a validation set of examples. You will probably need to manually adjust the learning rate (eta) to get convergence that gradually achieves a minimum error over a reasonable amount of time (though it might take thousands of epochs).
+
+Optionally, you might want to experiment with adding momentum.
+
+Use cross-validation to report accuracies and confidence intervals. (that means testing on a different subset of examples than was used to update the weights or monitor MSE during training)
+
+On a few datasets, experiment with different numbers of hidden layers and hidden units, and report your findings about how many nodes and hidden layers are optimal. Is there a dataset where 2 layers is statistically significantly better than 1? Does having 2 layers slow down training or impede convergence or cause overfit?
+
+When comparing the performance of algorithms, use T-tests. Hints:
+
+randomize the order of examples
+normalize continuous attributes
+monitor MSE on validation set
+evaluate accuracy on independent test set
+adjust learning rate to get good convergence in reasonable time
+don't forget the bias input to each node
+What to Turn In
+
+Submit your files through the https://wiki.cse.tamu.edu/index.php/Turning_in_Assignments_on_CSNet (you might need to be inside the TAMU firewall to access this) Include the following:
+Your source code. Also include a descripion of how to compile and run your program, sufficient so that it can be tested by the grader.
+A write-up that describes salient details about your implementation, such as whether you use stochastic updates, momentum, handling of discrete inputs, normalization of continuous inputs, threshold function, stopping criterion, etc.
+A table of results. Include the confidence interval on accuracy (from cross-validation) for the best version of your algorithm on at least 5 datasets (include brief descriptions of what they are). Also include details of the final number of layers, hidden nodes, learning rate, and iterations (to convergence) used in each case.
+On at least 2 of the datasets, compare the performance with 0, 1, and 2 hidden layers, and different numbers of hidden nodes (for example, 5,10,15,20 or 2,4,8,16, etc.) You might want to also indicate the total number of parameters (weights) in each case.
+In the table, include confidence intervals for your decision tree, and do a T-test to determine whether any of the differences are statistically significant. (Note that a paired T-test would be preferrable because it should be more sensitive, but I realize it might be difficult to run your programs on the same cross-validation splits, so just a simple pooled T-test would be sufficient, if you want.)
+Include a discussion of your results, i.e. on which datasets did the neural network do better than the decision tree and why? What impacted the performance of your network the most? Did having more hidden layers and/or nodes increase accuracy? take longer to converge? What is optimal (in your opinion, based on your results)?

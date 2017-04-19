@@ -1,0 +1,77 @@
+CSCE 633 - Spring 2016
+Project 1 - Decision Tree
+*revised* due date: THURS, Feb 25 (by start of class, 3:55pm)
+
+Implement a decision tree algorithm (in any programming language of your
+choice), and test it on at least 5 datasets from the UCI Machine Learning
+Repository.
+
+Implement the basic ID3 algorithm as described in the Mitchell textbook.
+Here are some technical details you will have to address.
+
+1. Input files: most of them use comma-separated format, so write a
+pre-processor assuming that.  You will want to RANDOMIZE the order of
+examples when you read them in.  You might want to include a way to
+indicate attribute names, which attribute is the target, which
+attributes are continuous, and/or what symbols indicates missing
+values.  This can be accomplished in a variety of ways.  You could
+provide this information via command-line arguments and flags.  Or you
+could write-up a "control file" that is unique for each database
+(i.e. lists of attribute names, types, values, etc).  One of the
+things you might find convenient to do when you read in the data is to
+pre-process it by determining the set of discrete values for each
+attribute and their overall frequency distribution, or the mean and
+range for continuous attributes, etc.
+
+2. For ID3, you should use Information Gain as a splitting critrion,
+though you might also want to experiment with other criteria
+(e.g. Gini Index, Gain Ratio, etc.).  Feel free to test them out and
+report which performs better.
+
+3. You must implement at least one pruning method, though the choice
+of which method is up to you.  However, I recommend trying two
+different pruning methods (if you have the time) and comparing them,
+since some pruning methods can improve the accuracy of your
+algorithm more than others.
+
+4. For testing, you should use ten-fold CROSS-VALIDATION, and report a
+mean accuracy along with a confidence interval (on at least 5
+datasets).  
+
+You should also implement a method for printing out your trees as
+ASCII text (using indentation to show the hierarchy; indicate the test
+attribute and outcome for each internal node, and the class label for
+leaf nodes; also include the class distribution among training
+examples at each node).  Here is an example:
+
+  water-project-cost-sharing=yes [10 republican, 5 democrat]
+    adoption-of-the-budget-resolution=yes [4 republican, 1 democrat]
+      class=republican [4 republican, 0 democrat]
+    adoption-of-the-budget-resolution=no [4 republican, 1 democrat]
+      class=democrat [0 republican, 1 democrat]
+  water-project-cost-sharing=no [2 republican, 5 democrat]
+    ...
+
+What to Turn In
+---------------
+
+Submit your files through the 
+https://wiki.cse.tamu.edu/index.php/Turning_in_Assignments_on_CSNet
+(you might need to be inside the TAMU firewall to access this)
+Include the following:
+
+1. Your source code.  Also include a descripion of how to compile and
+run your program, sufficient so that it can be tested by the grader.
+
+2. A write-up that describes salient details about your implementation,
+such as what splitting and stopping criteria you use, the method
+you use for pruning, how you deal with continuous or missing attributes, 
+etc.  Show an example print-out of a decision tree for one of the 
+datasets.
+
+3. A table of results.  Include the confidence interval on accuracy
+(from cross-validation) for the best version of your algorithm on at
+least 5 datasets (include brief descriptions of what they are).  Also
+compare the accuracy and tree-sizes you obtain WITH and WITHOUT
+pruning.  Also include the accuracy of the majority classifier as a
+reference.

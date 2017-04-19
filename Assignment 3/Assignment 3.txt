@@ -1,0 +1,20 @@
+CSCE 633 - Spring 2016
+Project 3 - Instance-Based Learning and Feature Selection
+due date: Thurs, April 14 (by start of class, 3:55pm)
+The goal of this assignment is to implement a Instance-Based (or nearest neighbor) algorithm with some form of feature selection or feature weighting (in any programming language of your choice), and test it on at least 5 datasets from the UCI Machine Learning Repository. Compare the performance of your IBL program your Neural Network and your Decision Tree.
+
+The nearest-neighber algorithm is very easy to implement. However, there are several details with which you might want to experiment. For example, you might want to test different values of k (for k-NN), or use distance-weighting. You might also want to experiment with methods such as NTGrowth.
+
+It will be helpful to normalize the input attributes so they are roughly equally weighted.
+
+An important component of this project is to implement some form of feature selection or feature weighting. Your goal should be to make your IBL program as accurate as possible, using the best method you can implement for feature selection/weighting. You should present the results of your IBL algorithm with and without feature selection/weighting, to determine whether it has any effect on accuracy.
+
+When comparing the performance of algorithms, use T-tests.
+
+What to Turn In
+
+Submit your files through the https://wiki.cse.tamu.edu/index.php/Turning_in_Assignments_on_CSNet (you might need to be inside the TAMU firewall to access this) Include the following:
+Your source code. Also include a descripion of how to compile and run your program, sufficient so that it can be tested by the grader.
+A write-up that describes salient details about your implementation.
+A table of results. Include the confidence intervals on accuracy for your IBL algorithm, as well as your decision tree (with pruning) and the best version of your neural network, on least 5 datasets. Interpret/explain your results and their implications. Is IBL systematically better then, same as, or worse than your Decision Tree or Neural Network? Or is this true just for certain datasets, and if so, why?
+In the table, include confidence intervals for your decision tree, and do a T-test to determine whether any of the differences are statistically significant. Comment on whether you observed any benefit with feature selection/weighting.
